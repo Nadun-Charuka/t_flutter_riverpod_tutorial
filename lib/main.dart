@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:t_flutter_riverpod_tutorial/video3.dart';
+import 'package:t_flutter_riverpod_tutorial/video5/video5.dart';
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -11,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Video3());
+    return MaterialApp(home: Video5());
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:t_flutter_riverpod_tutorial/video5/fake_api.dart';
+import 'package:t_flutter_riverpod_tutorial/services/all_services.dart';
 
 final fakeApiProvider = Provider((ref) => FakeService());
 
@@ -26,7 +26,6 @@ class Video5 extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             greetingAsync.when(
-              skipError: true,
               skipLoadingOnRefresh: false,
               skipLoadingOnReload: false,
               data: (data) => Text(
@@ -36,7 +35,10 @@ class Video5 extends ConsumerWidget {
               error: (error, stackTrace) => Column(
                 spacing: 10,
                 children: [
-                  Text(error.toString()),
+                  Text(
+                    error.toString(),
+                    style: TextStyle(color: Colors.red),
+                  ),
                   ElevatedButton.icon(
                     onPressed: () => ref.refresh(greetingFutureProvider),
                     label: Text("Retry"),
